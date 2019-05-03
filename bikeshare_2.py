@@ -13,14 +13,14 @@ days = ['monday', 'tuesday', 'wednesday', 'thursday',
 
 def convert_time(total_seconds):
     """
-    converts seconds into hours, minutes, and seconds
+    Converts seconds into hours, minutes, and seconds
 
     Args:
-        (int) total_seconds - the total number of seconds to be converted
+        (int) total_seconds - total number of seconds to be converted
     Returns:
-        (int) hours - the total full hours converted from total_seconds
-        (int) minutes - the total full minutes converted from total_seconds
-        (int) seconds - the remaining seconds from total_seconds
+        (int) hours - total whole hours converted from total_seconds
+        (int) minutes - total whole minutes converted from total_seconds
+        (int) seconds - remaining seconds from total_seconds
     """
     hours = int(total_seconds / 3600)
     minutes = int((total_seconds / 60) % 60)
@@ -38,8 +38,7 @@ def get_filters():
         (str) day - day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    # TO DO: get user input for city (chicago, new york city, washington).
-    # HINT: Use a while loop to handle invalid inputs
+    # get user input for city
     while True:
         city = input('Would you like to see data for Chicago, '
                      'New York City, Washington, '
@@ -48,7 +47,7 @@ def get_filters():
             break
         else:
             print('I didn\'t get that city, please try again.\n')
-    # TO DO: get user input for month (all, january, february, ... , june)
+    # get user input for month
     while True:
         month = input('Would you like to filter by month? '
                       'Type in the month name or \"all\" if you want '
@@ -57,7 +56,7 @@ def get_filters():
             break
         else:
             print('I didn\'t get that month, please try again.\n')
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+    # get user input for day of week
     while True:
         day = input('Would you like to filter by day of the week? '
                     'Type in the day or \"all\" if you want '
@@ -110,15 +109,15 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # TO DO: display the most common month
+    # display the most common month
     popular_month = months[df['month'].mode()[0] - 1]
     print('Most Popular Month: ', popular_month.title())
 
-    # TO DO: display the most common day of week
+    # display the most common day of week
     popular_day = df['day_of_week'].mode()[0]
     print('Most Popular Day: ', popular_day)
 
-    # TO DO: display the most common start hour
+    # display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     popular_hour = df['hour'].mode()[0]
     print('Most Popular Start Hour: {}:00'.format(popular_hour))
@@ -133,15 +132,15 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # TO DO: display most commonly used start station
+    # display most commonly used start station
     popular_start = df['Start Station'].mode()[0]
     print('Most Popular Starting Station: ', popular_start)
 
-    # TO DO: display most commonly used end station
+    # display most commonly used end station
     popular_end = df['End Station'].mode()[0]
     print('Most Popular Ending Station: ', popular_end)
 
-    # TO DO: display most frequent combo of start station and end station trip
+    # display most frequent combo of start station and end station trip
     df['Start End'] = df['Start Station'] + " and " + df['End Station']
     popular_start_end = df['Start End'].mode()[0]
     print('Most Popular Combination Start and End: ', popular_start_end)
@@ -156,13 +155,13 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # TO DO: display total travel time
+    # display total travel time
     total_time = df['Trip Duration'].sum()
     hours, minutes, seconds = convert_time(total_time)
     print('Total Duration of all trips combined: {} hours, {} minutes, and '
           '{} seconds'.format(hours, minutes, seconds))
 
-    # TO DO: display mean travel time
+    # display mean travel time
     mean_time = df['Trip Duration'].mean()
     hours, minutes, seconds = convert_time(mean_time)
     print('Mean Travel Time: {} hours, {} minutes, '
@@ -178,7 +177,7 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # TO DO: Display counts of user types
+    # display counts of user types
     user_types = df['User Type'].value_counts()
     subscriber = user_types.get('Subscriber')
     customer = user_types.get('Customer')
@@ -186,7 +185,7 @@ def user_stats(df):
     print('Subscribers: {} \nCustomers: {} \nDependents: '
           '{}'.format(subscriber, customer, dependent))
 
-    # TO DO: Display counts of gender
+    # display counts of gender
     if 'Gender' in df.columns:
         print('')
         user_genders = df['Gender'].value_counts()
@@ -194,7 +193,7 @@ def user_stats(df):
         female = user_genders.get('Female')
         print('Male: {} \nFemale: {}'.format(male, female))
 
-    # TO DO: Display earliest, most recent, and most common year of birth
+    # display earliest, most recent, and most common year of birth
     if 'Birth Year' in df.columns:
         print('')
         earliest_year = int(df['Birth Year'].describe()['min'])
