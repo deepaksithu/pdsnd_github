@@ -11,20 +11,36 @@ days = ['monday', 'tuesday', 'wednesday', 'thursday',
         'friday', 'saturday', 'sunday', 'all']
 
 
-def convert_time(total_seconds):
+def convert_time(t_sec):
     """
     Converts seconds into hours, minutes, and seconds
 
     Args:
+<<<<<<< HEAD
         (int) total_seconds - total number of seconds to be converted
+||||||| merged common ancestors
+        (int) total_seconds - the total number of seconds to be converted
+=======
+        (int) t_sec - the total number of seconds to be converted
+>>>>>>> refactoring
     Returns:
+<<<<<<< HEAD
         (int) hours - total whole hours converted from total_seconds
         (int) minutes - total whole minutes converted from total_seconds
         (int) seconds - remaining seconds from total_seconds
+||||||| merged common ancestors
+        (int) hours - the total full hours converted from total_seconds
+        (int) minutes - the total full minutes converted from total_seconds
+        (int) seconds - the remaining seconds from total_seconds
+=======
+        (int) hours - the total full hours converted from t_sec
+        (int) minutes - the total full minutes converted from t_sec
+        (int) seconds - the remaining seconds from t_sec
+>>>>>>> refactoring
     """
-    hours = int(total_seconds / 3600)
-    minutes = int((total_seconds / 60) % 60)
-    seconds = int(total_seconds % 60)
+    hours = int(t_sec / 3600)
+    minutes = int((t_sec / 60) % 60)
+    seconds = int(t_sec % 60)
     return hours, minutes, seconds
 
 
@@ -109,18 +125,18 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # display the most common month
-    popular_month = months[df['month'].mode()[0] - 1]
-    print('Most Popular Month: ', popular_month.title())
+    # TO DO: display the most common month
+    pop_month = months[df['month'].mode()[0] - 1]
+    print('Most Popular Month: ', pop_month.title())
 
-    # display the most common day of week
-    popular_day = df['day_of_week'].mode()[0]
-    print('Most Popular Day: ', popular_day)
+    # TO DO: display the most common day of week
+    pop_day = df['day_of_week'].mode()[0]
+    print('Most Popular Day: ', pop_day)
 
     # display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
-    popular_hour = df['hour'].mode()[0]
-    print('Most Popular Start Hour: {}:00'.format(popular_hour))
+    pop_hour = df['hour'].mode()[0]
+    print('Most Popular Start Hour: {}:00'.format(pop_hour))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -132,18 +148,18 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # display most commonly used start station
-    popular_start = df['Start Station'].mode()[0]
-    print('Most Popular Starting Station: ', popular_start)
+    # TO DO: display most commonly used start station
+    pop_start = df['Start Station'].mode()[0]
+    print('Most Popular Starting Station: ', pop_start)
 
-    # display most commonly used end station
-    popular_end = df['End Station'].mode()[0]
-    print('Most Popular Ending Station: ', popular_end)
+    # TO DO: display most commonly used end station
+    pop_end = df['End Station'].mode()[0]
+    print('Most Popular Ending Station: ', pop_end)
 
     # display most frequent combo of start station and end station trip
     df['Start End'] = df['Start Station'] + " and " + df['End Station']
-    popular_start_end = df['Start End'].mode()[0]
-    print('Most Popular Combination Start and End: ', popular_start_end)
+    pop_start_end = df['Start End'].mode()[0]
+    print('Most Popular Combination Start and End: ', pop_start_end)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
