@@ -2,10 +2,10 @@
 5/2/2019
 
 ### Project Title
-Udacity Bikeshare Github Project
+Deepak Sithu - Udacity GitHub Bikeshare Project
 
 ### Description
-Allows the user to interact with the bikeshare data
+Python file which allows the user to interact with and better understand bikeshare data from three cities.
 
 ### Files used
 bikeshare_2.py
@@ -16,4 +16,4 @@ README.md
 .gitignore
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+-
