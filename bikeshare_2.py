@@ -11,20 +11,20 @@ days = ['monday', 'tuesday', 'wednesday', 'thursday',
         'friday', 'saturday', 'sunday', 'all']
 
 
-def convert_time(total_seconds):
+def convert_time(t_sec):
     """
     converts seconds into hours, minutes, and seconds
 
     Args:
-        (int) total_seconds - the total number of seconds to be converted
+        (int) t_sec - the total number of seconds to be converted
     Returns:
-        (int) hours - the total full hours converted from total_seconds
-        (int) minutes - the total full minutes converted from total_seconds
-        (int) seconds - the remaining seconds from total_seconds
+        (int) hours - the total full hours converted from t_sec
+        (int) minutes - the total full minutes converted from t_sec
+        (int) seconds - the remaining seconds from t_sec
     """
-    hours = int(total_seconds / 3600)
-    minutes = int((total_seconds / 60) % 60)
-    seconds = int(total_seconds % 60)
+    hours = int(t_sec / 3600)
+    minutes = int((t_sec / 60) % 60)
+    seconds = int(t_sec % 60)
     return hours, minutes, seconds
 
 
