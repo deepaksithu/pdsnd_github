@@ -15,5 +15,3 @@ washington.csv
 README.md
 .gitignore
 
-### Credits
--
